@@ -71,19 +71,27 @@
             <div class="col-md-8">
                 <h2 class="text-center">Lawrence Photos</h2>
                 <div class="row">
+                    {% for photo in photos %}
                     <div class="col-md-4">
                         <div class="card my-3">
-                            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=755&q=80" class="card-img-top" height="200px" alt="Photos of Lawrence">
+                            <img src="{{ photo.image.url }}" class="card-img-top" height="200px" alt="Photos of Lawrence">
                             <div class="card-body">
                               <!-- <h5 class="card-title">Card title</h5> -->
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <p class="card-text">Category: <span class="text-info">{{ photo.category.category_name }}</span></p>
                             </div>
                             <div class="text-center">
-                                <a href="{% url 'photos' 1 %}"><button class="btn btn-primary">View Details</button></a>
+                                <a href="{% url 'photos' photo.id %}"><button class="btn btn-primary">View Details</button></a>
                             </div>
                             <br>
                         </div>
-                    </div>                   
+                    </div> 
+                    {% empty %}
+                    <div class="text-center">
+                        <h1 class="text-danger">THERE ARE NO PHOTOS FOUND HERE!!!</h1>
+                        <br><br>
+                        <a href="{% url 'add-photos' %}" class="btn btn-lg bg-outline-primary text-light"> Add New Photo</a>
+                    </div>
+                    {% endfor %}                  
                 </div>
 
             </div>
