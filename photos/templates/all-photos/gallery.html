@@ -49,13 +49,16 @@
                     <div class="card">
                         <ul class="list-group list-group-flush">
                           <li class="list-group-item">All</li>
-                          <li class="list-group-item">Personal Photos</li>
+                          {% for category in categories %}
+                          <li class="list-group-item">{{ category.category_name }}</li>
+                          {% endfor %}
+                          <!-- <li class="list-group-item">Personal Photos</li>
                           <li class="list-group-item">Travel Photos</li>
                           <li class="list-group-item">Animals Photos</li>
                           <li class="list-group-item">Nature Photos</li>
                           <li class="list-group-item">Plants Photos</li>
                           <li class="list-group-item">Business Photos</li>
-                          <li class="list-group-item">Furniture Photos</li>
+                          <li class="list-group-item">Furniture Photos</li> -->
                         </ul>
                     </div>
                 </div>
