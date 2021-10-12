@@ -24,8 +24,18 @@
                             {% csrf_token %}
 
                             <div class="form-group m-3">
+                                <label for=""><strong>Image Name: </strong></label>
+                                <input required name="image_name" type="text" placeholder="Enter name of image..." class="form-control">
+                            </div>
+
+                            <div class="form-group m-3">
                                 <label for=""><strong>Description: </strong></label>
                                 <input required name="description" type="text" placeholder="Enter description..." class="form-control">
+                            </div>
+
+                            <div class="form-group m-3">
+                                <label for=""><strong>Image Location: </strong></label>
+                                <input required name="image_location" type="text" placeholder="Enter location image was taken..." class="form-control">
                             </div>
 
                             <div class="form-group m-3">

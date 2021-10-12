@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 from django.db.models.deletion import SET_NULL
 from django.db.models.fields.files import ImageField
 
@@ -11,10 +12,21 @@ class Category(models.Model):
     def __str__(self):
         return self.category_name
 
+    @classmethod
+    def search_by_name(cls,search_term):
+        category_name = cls.objects.filter(photos=search_term)
+        return category_name
+
+
 class Photos(models.Model):
     category = models.ForeignKey(Category,on_delete=SET_NULL,null=True)
-    image = ImageField(null=False,blank=False)
+    image = CloudinaryField('image')
+    # image = ImageField(null=False,blank=False)
+    image_name = models.CharField(max_length=100,null=False,blank=False,default='Name_of_image')
     description = models.TextField()
+    image_location = models.CharField(max_length=50,null=False,blank=False,default='Location_image_was_taken')
 
     def __str__(self):
-        return self.description
+        return self.image_name
+    
+

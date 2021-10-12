@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lawi-Gallery</title>
+</head>
+<body>
+    {% block content %}
+    <div class="container">
+
+    <div class="row">
+        {% if category%}
+        <h2>Found {{ category }} of searched term {{message}}</h2>
+        {% else %}
+        <h2> Found 0 categories for the search term {{message}}</h2>
+        {% endif %}
+
+    </div>
+
+    <div class="row">
+
+    {% if category %}
+        {% for category in categories %}
+        <li class="list-group-item">
+        <a href="{% url 'gallery' %}?category={{category.category_name}}" class="text-info text-decoration-none">
+            👉 {{ category.category_name }}
+        </a>
+        </li>
+        {% endfor %}
+    {% endif %}
+    </div>
+    </div>
+    {% endblock %}
+</body>
+</html>
