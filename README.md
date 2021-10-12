@@ -12,7 +12,7 @@ Lawrence is a Fullstack developer who studied coding in Moringa School under ACC
 <img src="https://images2.imgbox.com/5f/3d/rOv67mTD_o.png">
 
 ## Live page
-https://github.com/edwinkipchumba/gallery-app
+[View Live](https://lawigallery.herokuapp.com/)
 ## User stories
 These are the characteristics application implements for user by application.
 Users would like to:
